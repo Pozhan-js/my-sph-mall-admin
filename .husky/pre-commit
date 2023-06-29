@@ -1,0 +1,16 @@
+###
+ # @Author: Why so serious my dear 854059946@qq.com
+ # @Date: 2023-06-29 20:15:42
+ # @LastEditors: Why so serious my dear 854059946@qq.com
+ # @LastEditTime: 2023-06-29 20:18:38
+ # @FilePath: /my-sph-mall-admin/.husky/pre-commit
+ # @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+### 
+# #!/usr/bin/env sh
+# . "$(dirname -- "$0")/_/husky.sh"
+
+# npm test
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+pnpm lint-staged
