@@ -68,3 +68,36 @@ emoji	代码	说明
 支持自定义主题切换
 支持i18n 国际化
 自定义指令开发
+
+### 项目结构
+
+tree -I "node_modules|test*|LICENSE|README.en.md" -L 2
+
+├── README.md
+├── commitlint.config.cjs
+├── index.html
+├── mock
+│   ├── _utils.ts
+│   └── user.ts
+├── package.json
+├── pnpm-lock.yaml
+├── public
+│   └── vite.svg
+├── src
+│   ├── App.vue
+│   ├── api
+│   ├── assets
+│   ├── components
+│   ├── config
+│   ├── enume
+│   ├── env.d.ts
+│   ├── main.ts
+│   ├── router
+│   ├── store
+│   ├── style.css
+│   ├── styles
+│   ├── typings
+│   └── utils
+├── tsconfig.json
+├── tsconfig.node.json
+└── vite.config.ts
