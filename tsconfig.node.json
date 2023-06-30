@@ -4,7 +4,9 @@
     "skipLibCheck": true,
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    // // 全局生命 element-plus 组件
+    // "types": ["element-plus/global"],
   },
   "include": ["vite.config.ts"]
 }
