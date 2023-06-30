@@ -6,20 +6,28 @@ import type {
   AxiosResponse,
 } from 'axios'
 import { ElMessage } from 'element-plus'
-import { localGet } from '../cache'
-import { TOKEN_KEY } from '../../enume/cacheEnum'
+import { useUserStore } from '@/store/modules/user'
+import { ResultEnum } from '@/enume/httpEnums'
+import { ResultData } from './type'
+import { LOGIN_URL } from '@/config/config'
+import { RESEETSTORE } from '../reset'
+import router from '@/router'
 
 const service: AxiosInstance = axios.create({
-  baseURL: '/api',
-  timeout: 0,
+  baseURL: import.meta.env.VITE_APP_BASE_API,
+  timeout: ResultEnum.TIMEOUT as number,
 })
 
-/* 请求拦截器 */
+/**
+ * @description: 请求拦截器
+ * @returns {*}
+ */
 service.interceptors.request.use(
   (config) => {
-    const token = localGet(TOKEN_KEY)
+    const userStore = useUserStore()
+    const token = userStore.token
     if (token) {
-      config.headers.Authorization = `${token}`
+      config.headers.token = token
     }
     return config
   },
@@ -28,21 +36,26 @@ service.interceptors.request.use(
     return Promise.reject(error)
   },
 )
-
-/* 响应拦截器 */
+/**
+ * @description: 响应拦截器
+ * @returns {*}
+ */
 service.interceptors.response.use(
   (response: AxiosResponse) => {
-    const { code, message, data } = response.data
-
-    // 根据自定义错误码判断请求是否成功
-    if (code === 0) {
-      // 将组件用的数据返回
-      return data
-    } else {
-      // 处理业务错误。
-      ElMessage.error(message)
-      return Promise.reject(new Error(message))
+    const { data } = response
+    // * 登陆失效（code == 203）
+    if (data.code === ResultEnum.EXPIRE) {
+      RESEETSTORE()
+      ElMessage.error(data.message || ResultEnum.ERRMESSAGE)
+      router.replace(LOGIN_URL)
+      return Promise.reject(data)
     }
+
+    if (data.code && data.code !== ResultEnum.SUCCESS) {
+      ElMessage.error(data.message || ResultEnum.ERRMESSAGE)
+      return Promise.reject(data)
+    }
+    return data
   },
   (error: AxiosError) => {
     // 处理 HTTP 网络错误
@@ -52,7 +65,6 @@ service.interceptors.response.use(
     switch (status) {
       case 401:
         message = 'token 失效，请重新登录'
-        // 这里可以触发退出的 action
         break
       case 403:
         message = '拒绝访问'
@@ -72,30 +84,41 @@ service.interceptors.response.use(
   },
 )
 
-/* 导出封装的请求方法 */
+/**
+ * @description: 导出封装的请求方法
+ * @returns {*}
+ */
 const http = {
-  get<T = any>(url: string, config?: AxiosRequestConfig): Promise<T> {
-    return service.get(url, config)
+  get<T>(
+    url: string,
+    params?: object,
+    config?: AxiosRequestConfig,
+  ): Promise<ResultData<T>> {
+    return service.get(url, { params, ...config })
   },
 
-  post<T = any>(
+  post<T>(
     url: string,
     data?: object,
     config?: AxiosRequestConfig,
-  ): Promise<T> {
+  ): Promise<ResultData<T>> {
     return service.post(url, data, config)
   },
 
-  put<T = any>(
+  put<T>(
     url: string,
     data?: object,
     config?: AxiosRequestConfig,
-  ): Promise<T> {
+  ): Promise<ResultData<T>> {
     return service.put(url, data, config)
   },
 
-  delete<T = any>(url: string, config?: AxiosRequestConfig): Promise<T> {
-    return service.delete(url, config)
+  delete<T>(
+    url: string,
+    data?: object,
+    config?: AxiosRequestConfig,
+  ): Promise<ResultData<T>> {
+    return service.delete(url, { data, ...config })
   },
 }
 
