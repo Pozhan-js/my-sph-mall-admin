@@ -50,3 +50,21 @@ emoji	代码	说明
 🔧 (扳手)	:wrench:	修改配置文件
 🌐 (地球)	:globe_with_meridians:	国际化与本地化
 ✏️ (铅笔)	:pencil2:	修复 typo
+
+
+### 功能介绍
+
+使用 Vue3.2.45 + TypeScript 开发
+采用 Vite4.0 作为项目开发、打包工具（配置 Gzip 打包、TSX 语法、跨域代理……）
+使用 Prettier 统一格式化代码，集成 Eslint、Stylelint 代码校验规范
+使用 husky、lint-staged、commitlint、commitizen、cz-git 规范提交信息
+使用 Pinia 替代 Vuex，轻量、简单、易用， 集成 Pinia 持久化插件
+使用 TypeScript 对 Axios 整个二次封装
+基于 Element-plus 二次封装 ProTable 组件，基于配置化去开发常用的表格。
+支持页面全屏展示
+支持菜单权限的配置和管理
+支持三种方式（指令，hooks，组件）的按钮级别的权限控制
+支持暗黑模式的切换
+支持自定义主题切换
+支持i18n 国际化
+自定义指令开发
