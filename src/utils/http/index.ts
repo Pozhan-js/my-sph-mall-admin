@@ -7,7 +7,7 @@ import type {
 } from 'axios'
 import { ElMessage } from 'element-plus'
 import { localGet } from '../cache'
-import { TOKEN_KEY } from '../../enums/cacheEnum'
+import { TOKEN_KEY } from '../../enume/cacheEnum'
 
 const service: AxiosInstance = axios.create({
   baseURL: '/api',
