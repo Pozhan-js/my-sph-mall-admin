@@ -2,7 +2,7 @@
  * @Author: Why so serious my dear 854059946@qq.com
  * @Date: 2023-07-09 18:58:41
  * @LastEditors: Why so serious my dear 854059946@qq.com
- * @LastEditTime: 2023-07-09 19:16:39
+ * @LastEditTime: 2023-07-09 19:36:23
  * @FilePath: /my-sph-mall-admin/src/layout/index.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -51,6 +51,7 @@ import LayoutTabsBar from './TabsBar/index.vue'
     width: calc(100% - $base-left-menu-width);
   }
 
+  // 作为主页的最外层元素
   .layout-admin-wrapper {
     position: relative;
     width: 100%;

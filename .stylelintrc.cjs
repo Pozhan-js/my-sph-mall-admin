@@ -2,13 +2,14 @@
  * @Author: Why so serious my dear 854059946@qq.com
  * @Date: 2023-06-29 19:58:45
  * @LastEditors: Why so serious my dear 854059946@qq.com
- * @LastEditTime: 2023-06-29 20:27:23
+ * @LastEditTime: 2023-07-09 19:51:36
  * @FilePath: /my-sph-mall-admin/.stylelintrc.cjs
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 // @see https://stylelint.bootcss.com/
 
 module.exports = {
+    configBasedir: __dirname,
     extends: [
         'stylelint-config-standard', // 配置stylelint拓展插件
         'stylelint-config-html/vue', // 配置 vue 中 template 样式格式化

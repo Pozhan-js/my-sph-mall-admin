@@ -7,7 +7,7 @@ import type {
 } from 'axios'
 import { ElMessage } from 'element-plus'
 import { useUserStore } from '@/store/modules/user'
-import { ResultEnum } from '@/enume/httpEnums'
+import { ResultEnum } from '@/enums/httpEnums'
 import { ResultData } from './type'
 import { LOGIN_URL } from '@/config/config'
 import { RESEETSTORE } from '../reset'
