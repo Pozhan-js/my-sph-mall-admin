@@ -1,3 +1,11 @@
+<!--
+ * @Author: Why so serious my dear 854059946@qq.com
+ * @Date: 2023-06-30 19:00:36
+ * @LastEditors: Why so serious my dear 854059946@qq.com
+ * @LastEditTime: 2023-06-30 20:01:54
+ * @FilePath: /my-sph-mall-admin/README.md
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
 # Vue 3 + TypeScript + Vite
 
 This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
@@ -19,6 +27,7 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
 
 
 git commit 提交emoji图标对照表
+```
 emoji	代码	说明
 🎨 (调色板)	:art:	改进代码结构/代码格式
 ⚡️ (闪电)🐎 (赛马)	:zap:“:racehorse:	提升性能
@@ -50,10 +59,12 @@ emoji	代码	说明
 🔧 (扳手)	:wrench:	修改配置文件
 🌐 (地球)	:globe_with_meridians:	国际化与本地化
 ✏️ (铅笔)	:pencil2:	修复 typo
+```
 
 
 ### 功能介绍
 
+```
 使用 Vue3.2.45 + TypeScript 开发
 采用 Vite4.0 作为项目开发、打包工具（配置 Gzip 打包、TSX 语法、跨域代理……）
 使用 Prettier 统一格式化代码，集成 Eslint、Stylelint 代码校验规范
@@ -68,36 +79,12 @@ emoji	代码	说明
 支持自定义主题切换
 支持i18n 国际化
 自定义指令开发
+```
 
 ### 项目结构
 
 tree -I "node_modules|test*|LICENSE|README.en.md" -L 2
 
-├── README.md
-├── commitlint.config.cjs
-├── index.html
-├── mock
-│   ├── _utils.ts
-│   └── user.ts
-├── package.json
-├── pnpm-lock.yaml
-├── public
-│   └── vite.svg
-├── src
-│   ├── App.vue
-│   ├── api
-│   ├── assets
-│   ├── components
-│   ├── config
-│   ├── enume
-│   ├── env.d.ts
-│   ├── main.ts
-│   ├── router
-│   ├── store
-│   ├── style.css
-│   ├── styles
-│   ├── typings
-│   └── utils
-├── tsconfig.json
-├── tsconfig.node.json
-└── vite.config.ts
+```
+
+```

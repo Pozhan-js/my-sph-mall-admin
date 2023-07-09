@@ -1,22 +1,21 @@
 <!--
  * @Author: Why so serious my dear 854059946@qq.com
- * @Date: 2023-06-30 15:25:26
+ * @Date: 2023-07-09 18:59:02
  * @LastEditors: Why so serious my dear 854059946@qq.com
- * @LastEditTime: 2023-07-09 19:08:39
- * @FilePath: /my-sph-mall-admin/src/App.vue
+ * @LastEditTime: 2023-07-09 19:30:53
+ * @FilePath: /my-sph-mall-admin/src/layout/Main/index.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 <template>
-  <div class="app">
-    <!-- 监听所有页面跳转 -->
-    <router-view></router-view>
+  <div class="Main">
+    <h2>Main</h2>
   </div>
 </template>
 
 <script lang="ts" setup></script>
 
 <style lang="scss" scoped>
-.app {
-  height: 100vh;
+.Main {
+  color: red;
 }
 </style>
