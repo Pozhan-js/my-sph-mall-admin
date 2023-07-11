@@ -2,20 +2,42 @@
  * @Author: Why so serious my dear 854059946@qq.com
  * @Date: 2023-07-09 18:59:02
  * @LastEditors: Why so serious my dear 854059946@qq.com
- * @LastEditTime: 2023-07-09 19:30:53
+ * @LastEditTime: 2023-07-12 01:05:35
  * @FilePath: /my-sph-mall-admin/src/layout/Main/index.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 <template>
-  <div class="Main">
-    <h2>Main</h2>
-  </div>
+  <section class="app-mian-height">
+    <router-view v-slot="{ Component, route }" v-if="isShow">
+      <transition appear name="fade-transform" mode="out-in">
+        <component :is="Component" :key="route.path" />
+      </transition>
+    </router-view>
+  </section>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { nextTick, ref, watch } from 'vue'
+import { useSettingsStore } from '@/store/modules/settings'
+
+const settingsStore = useSettingsStore()
+const isShow = ref(true)
+watch(
+  () => settingsStore.refresh,
+  () => {
+    isShow.value = false
+    nextTick(() => {
+      isShow.value = true
+    })
+  },
+)
+</script>
 
 <style lang="scss" scoped>
-.Main {
-  color: red;
+.app-mian-height {
+  min-height: $base-app-main-height;
+
+  // padding: 20px;
+  background-color: inherit;
 }
 </style>

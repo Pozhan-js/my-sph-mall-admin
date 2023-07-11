@@ -2,7 +2,7 @@
  * @Author: 朽木白
  * @Date: 2023-02-25 09:19:28
  * @LastEditors: Why so serious my dear 854059946@qq.com
- * @LastEditTime: 2023-07-09 23:52:38
+ * @LastEditTime: 2023-07-12 01:01:14
  * @Description: 静态路由
  */
 
@@ -53,15 +53,15 @@ export const staticRoutes: RouteRecordRaw[] = [
       },
     ],
   },
-  // {
-  //   path: '/data-screen',
-  //   name: 'DataScreen',
-  //   component: () => import('@/views/data-screen/index.vue'),
-  //   meta: {
-  //     icon: 'DataLine',
-  //     title: '数据大屏',
-  //   },
-  // },
+  {
+    path: '/data-screen',
+    name: 'DataScreen',
+    component: () => import('@/views/data-screen/index.vue'),
+    meta: {
+      icon: 'DataLine',
+      title: '数据大屏',
+    },
+  },
   // 此路由防止控制台出现No match found for location with path的警告
   {
     path: '/:catchAll(.*)',
